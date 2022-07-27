@@ -1,0 +1,37 @@
+--Create Store Inventory Database
+
+CREATE TABLE store_inventory (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, sold INTEGER, restock TEXT);
+
+INSERT INTO store_inventory VALUES (1, 'Tomato Sandwich', 5, 4, 6, 'Yes');
+INSERT INTO store_inventory VALUES (2, 'BLT', 5, 3, 6, 'No');
+INSERT INTO store_inventory VALUES (3, 'Lentil Soup', 8, 4, 6, 'Yes');
+INSERT INTO store_inventory VALUES (4, 'Burger', 3, 3, 6, 'No');
+INSERT INTO store_inventory VALUES (5, 'Fish Sandwich', 9, 4, 6, 'Yes');
+INSERT INTO store_inventory VALUES (6, 'Chips', 5, 3, 6, 'No');
+INSERT INTO store_inventory VALUES (7, 'Fries', 2, 4, 6, 'Yes');
+INSERT INTO store_inventory VALUES (8, 'Onion Rings', 3, 3, 6, 'No');
+INSERT INTO store_inventory VALUES (9, 'Nachos', 3, 4, 6, 'Yes');
+INSERT INTO store_inventory VALUES (10, 'Roast Beef', 7, 3, 6, 'No');
+INSERT INTO store_inventory VALUES (11, 'Spicy Tuna', 8, 4, 6, 'Yes');
+INSERT INTO store_inventory VALUES (12, 'Pasta', 2, 3, 6, 'No');
+INSERT INTO store_inventory VALUES (13, 'Cornbread', 3, 4, 6, 'Yes');
+INSERT INTO store_inventory VALUES (14, 'Potato', 6, 3, 6, 'No');
+INSERT INTO store_inventory VALUES (15, 'Grits', 5, 4, 6, 'Yes');
+INSERT INTO store_inventory VALUES (16, 'BBQ', 9, 3, 6, 'No');
+
+--display from the store inventory by price
+
+SELECT * FROM store_inventory ORDER BY price;
+SELECT SUM(sold) FROM store_inventory;
+
+--what is the avg price of items in the inventory? 
+
+SELECT AVG(price) "avg item price"
+FROM store_inventory; 
+
+--what are the most 5 popular items?
+
+SELECT name, price, sold
+FROM store_inventory
+order by sold desc
+limit 5; 
