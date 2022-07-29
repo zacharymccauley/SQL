@@ -1,0 +1,34 @@
+--Create main table of the central family
+
+CREATE TABLE stark_family (id INTEGER PRIMARY KEY, name TEXT, role TEXT, affiliation TEXT, status INTEGER);
+
+INSERT INTO stark_family VALUES (1, "Ned Stark", "Father", "House Stark", 2);
+INSERT INTO stark_family VALUES (2, "Cat Stark", "Mother", "House Stark", 2);
+INSERT INTO stark_family VALUES (3, "Robb Stark", "Eldest Son", "House Stark", 2);
+INSERT INTO stark_family VALUES (4, "Sansa Stark", "Eldest Daughter", "House Stark", 1);
+INSERT INTO stark_family VALUES (5, "Arya Stark", "Youngest Daughter", "House Stark", 1);
+INSERT INTO stark_family VALUES (6, "Brandon Stark", "Middle Son", "House Stark", 1);
+INSERT INTO stark_family VALUES (7, "Rickon Stark", "Youngest Son", "House Stark", 2);
+INSERT INTO stark_family VALUES (8, "Jon Snow", "Bastard Son", "Brotherhood Without Banners", 1);
+
+--Create table with living status
+
+CREATE TABLE status (id INTEGER PRIMARY KEY, status TEXT);
+
+INSERT INTO status VALUES (1, "Alive");
+INSERT INTO status VALUES (2, "Dead");
+
+--Display family relationships and affiliations
+
+SELECT stark_family.name, stark_family.role, stark_family.affiliation FROM stark_family; 
+
+--Is the family member alive or have they been Game of Thrones-ed
+
+SELECT stark_family.name, status.status
+    FROM
+    stark_family
+    JOIN
+    status
+    WHERE
+    stark_family.status = status.id;
+    
